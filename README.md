@@ -19,6 +19,7 @@ bash ./install.sh
 
 ## SSL配置
 建议采用SSL，否则国内用户可能打不开。GFW对http://可能有过滤。
+
 设置SSL方法：
 编辑/etc/nginx/nginx.conf 中证书的路径：
 
