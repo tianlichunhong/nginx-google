@@ -31,7 +31,6 @@ function update {
     	echo -n "Enter any key to continue ... "
         read goodmood
     	echo 'Start updating!' 	
-    fi
 	/etc/nginx/sbin/nginx -s stop
     if [ $? -eq 0 ]; then
         echo "ngx_google_deployment process has been killed"
