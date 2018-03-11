@@ -14,6 +14,21 @@ bash ./install.sh
 按任意键继续
 一直到出现"Everything seems OK!Go ahead to see your google!"，就代表成功了
 * * *
+## SSL配置
+在/etc/nginx/nginx.conf 提供了ssl的配置，但是由于证书没有，所以nginx启动会报错。如果不采用ssl，需要在配置中将443服务器设置这段删除，nginx才能启动。
+建议采用SSL，否则国内用户可能打不开。GFW对http可能有过滤。
+
+设置SSL方法：
+编辑/etc/nginx/nginx.conf 中证书的路径：
+
+        ssl                  on;
+		
+        ssl_certificate      /etc/letsencrypt/live/g.adminhost.org/fullchain.pem;
+		
+        ssl_certificate_key  /etc/letsencrypt/live/g.adminhost.org/privkey.pem;
+		
+证书获取方法，请参考https://certbot.eff.org/#debianwheezy-nginx
+
 ## 使用
 脚本已经配置好自启动设置。Nginx的启动、重启、停止命令：
 
@@ -29,18 +44,6 @@ bash ./install.sh
 
 在浏览器中输入你的域名，就可以正常使用谷歌了。也可以通过nginx.conf的配置实现对其他网站的反代。
 
-## SSL配置
-建议采用SSL，否则国内用户可能打不开。GFW对http可能有过滤。
 
-设置SSL方法：
-编辑/etc/nginx/nginx.conf 中证书的路径：
-
-        ssl                  on;
-		
-        ssl_certificate      /etc/letsencrypt/live/g.adminhost.org/fullchain.pem;
-		
-        ssl_certificate_key  /etc/letsencrypt/live/g.adminhost.org/privkey.pem;
-		
-证书获取方法，请参考https://certbot.eff.org/#debianwheezy-nginx
 
 
