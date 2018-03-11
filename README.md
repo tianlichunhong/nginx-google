@@ -27,10 +27,10 @@ bash ./install.sh
  
 重启命令:/etc/nginx/sbin/nginx -s reload
 
-在浏览器中打开http://你的域名，就可以正常使用谷歌了。也可以通过nginx.conf的配置实现对其他网站的反代。
+在浏览器中输入你的域名，就可以正常使用谷歌了。也可以通过nginx.conf的配置实现对其他网站的反代。
 
 ## SSL配置
-建议采用SSL，否则国内用户可能打不开。GFW对http://可能有过滤。
+建议采用SSL，否则国内用户可能打不开。GFW对http可能有过滤。
 
 设置SSL方法：
 编辑/etc/nginx/nginx.conf 中证书的路径：
