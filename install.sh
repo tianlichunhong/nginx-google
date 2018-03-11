@@ -27,10 +27,10 @@ function update {
 	echo -n "Tell me your domain for google search: " 
     read key1
     DOMAIN1=$key1
-      	echo "your google search domain is $DOMAIN1"
-    	echo -n "Enter any key to continue ... "
-        read goodmood
-    	echo 'Start updating!' 	
+    echo "your google search domain is $DOMAIN1"
+    echo -n "Enter any key to continue ... "
+    read goodmood
+    echo 'Start updating!' 	
 	/etc/nginx/sbin/nginx -s stop
     if [ $? -eq 0 ]; then
         echo "ngx_google_deployment process has been killed"
