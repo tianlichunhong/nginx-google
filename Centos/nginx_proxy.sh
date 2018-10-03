@@ -55,8 +55,8 @@ else
 fi
 cd /usr/src
 #3.download  nginx-1.13.9
-wget -N http://nginx.org/download/nginx-1.13.9.tar.gz
-tar -zxvf nginx-1.13.9.tar.gz
+wget -N http://nginx.org/download/nginx-1.15.5.tar.gz
+tar -zxvf nginx-1.15.5.tar.gz
 #4.download  ngx_http_substitutions_filter_module
 wget -N --no-check-certificate https://raw.githubusercontent.com/tianlichunhong/nginx-google/master/ngx_http_substitutions_filter_module.tar.gz
 tar -zxvf ngx_http_substitutions_filter_module.tar.gz
