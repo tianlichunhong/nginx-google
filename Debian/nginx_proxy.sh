@@ -68,15 +68,12 @@ make && make install
 #7.download nginx.conf
 cd /usr/src
 wget -N --no-check-certificate https://raw.githubusercontent.com/tianlichunhong/nginx-google/master/nginx.conf
-cp -r -f nginx.conf /etc/nginx/nginx.conf
-sed -i "s#g.adminhost.org#$DOMAIN1#g" /etc/nginx/nginx.conf
-mkdir -p /etc/nginx/vhost
-mkdir -p /etc/nginx/cache/one
-mkdir -p /etc/nginx/cache/two
-mkdir -p /etc/nginx/cache/three
+cp -r -f nginx.conf /usr/local/nginx/conf/nginx.conf
+sed -i "s#g.adminhost.org#$DOMAIN1#g" /usr/local/nginx/conf/nginx.conf
+
 #8.set auto-start for nginx
 cp -r -f /etc/rc.local /etc/rc.local_bak
-AUTO='/etc/nginx/sbin/nginx'
+AUTO='/usr/local/nginx/sbin/nginx'
 cat /etc/rc.local|grep 'exit 0'
 if [ $? -eq 0 ]; then
 	sed -i 's/\"exit 0\"/\#/g' /etc/rc.local

@@ -31,16 +31,15 @@ function update {
     echo -n "Enter any key to continue ... "
     read goodmood
     echo 'Start updating!' 	
-	/etc/nginx/sbin/nginx -s stop
+	/usr/local/nginx/sbin/nginx -s stop
     if [ $? -eq 0 ]; then
         echo "ngx_google_deployment process has been killed"
     fi
-	mkdir -p /etc/nginx/vhost
 	cd /usr/src
 	wget -N --no-check-certificate https://raw.githubusercontent.com/tianlichunhong/nginx-google/master/nginx.conf	
 	sed -i "s#g.adminhost.org#$DOMAIN1#g" /usr/src/nginx.conf
-	cp -r -f /usr/src/nginx.conf /etc/nginx/nginx.conf
-	/etc/nginx/sbin/nginx
+	cp -r -f /usr/src/nginx.conf /usr/local/nginx/conf/nginx.conf
+	/usr/local/nginx/sbin/nginx
 	if [ $? -eq 0 ]; then		
         echo "
 		#nginx.conf has been updated!"
@@ -62,7 +61,7 @@ function uninstall {
         answer="n"
     fi
     if [ "$answer" = "y" ]; then
-        /etc/nginx/sbin/nginx -s stop
+        /usr/local/nginx/sbin/nginx -s stop
         if [ $? -eq 0 ]; then
                     echo "ngx_google_deployment process has been killed"
         fi
@@ -72,7 +71,7 @@ function uninstall {
             cp /etc/rc.local_bak /etc/rc.local
         fi
         # delete config file
-        rm -rf /etc/nginx
+        rm -rf /usr/local/nginx
         # delete nginx
         rm -rf /var/log/nginx
         rm -rf /var/lib/nginx
