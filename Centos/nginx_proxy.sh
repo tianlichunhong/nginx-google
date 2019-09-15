@@ -87,7 +87,7 @@ else
 	echo "$AUTO">>/etc/rc.local
 fi
 #9.start nginx
-/etc/nginx/sbin/nginx
+/usr/local/nginx/sbin/nginx
 if [ $? -eq 0 ]; then
 	echo "
 	#Everything seems OK!
